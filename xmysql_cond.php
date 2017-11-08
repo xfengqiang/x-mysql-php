@@ -322,14 +322,14 @@ function testCond() {
 
     //insert
     $sql = xmysql_cond::table(null, 'gjj_invite_activity_user')
-        ->insert(['user_id'=>1,'user_name'=>'许凤强'])
+        ->insert(['user_id'=>1,'user_name'=>'fankxu'])
         ->sql();
 
     echo "[INSERT] {$sql}\n";
 
     //update
     $sql = xmysql_cond::table(null, 'gjj_invite_activity_user')
-        ->update(['user_id'=>1,'user_name'=>'许凤强'])
+        ->update(['user_id'=>1,'user_name'=>'fankxu'])
         ->where('id', 1)
         ->sql();
     echo "[UPDATE] {$sql}\n";
