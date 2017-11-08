@@ -6,6 +6,13 @@ PHP mysql orm封装，使用msyqli扩展实现
 - 回调函数
 - SQL语句快速拼装
 
+## 引入文件
+```
+require_once 'xmysql.php';
+use xmysql\xmysql;
+use xmysql\xmysql_loader;
+```
+
 ## 数据库配置
 ```
 $config = [
