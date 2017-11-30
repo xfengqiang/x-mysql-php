@@ -14,7 +14,7 @@ namespace xmysql;
 require 'xmysql_loader.php';
 require 'xmysql_cond.php';
 
-class xmysql
+class db
 {
     private static $globalCallBack = null; //默认全局回调函数
 

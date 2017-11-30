@@ -9,7 +9,7 @@ PHP mysql orm封装，使用msyqli扩展实现
 ## 引入文件
 ```
 require_once 'xmysql.php';
-use xmysql\xmysql;
+use xmysql\db;
 use xmysql\xmysql_loader;
 ```
 
@@ -51,7 +51,7 @@ xmysql::setGlobalCallBack(function (xmysql $mysql, mysqli $db, $sql) {
 
 ### 进行sql操作
 ``` 
-$db = new xmysql('mall');
+$db = new db('mall');
 
 function printRet($msg, $data) {
     echo "$msg ".json_encode($data)."\n";

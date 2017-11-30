@@ -31,6 +31,10 @@ class xmysql_loader
         self::$dbConfig[$name] = $config;
     }
 
+    public static function getDbConfig($name) {
+        return isset(self::$dbConfig[$name]) ? self::$dbConfig[$name] : null;
+    }
+
     /**
      * @param $name
      * @param $type

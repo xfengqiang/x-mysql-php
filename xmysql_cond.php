@@ -231,13 +231,13 @@ class xmysql_cond{
         }
 
         if($this->oper == "SELECT" || $this->oper == "DELETE") {
-            $this->_sql = $this->oper." ".$this->fields." FROM ".$this->table;
+            $this->_sql = $this->oper." ".$this->fields." FROM `".$this->table."`";
         }else if($this->oper == "UPDATE"){
             $fields = $this->getSetFields($db, $this->fields);
-            $this->_sql = $this->oper." {$this->table} SET".$fields." ";
+            $this->_sql = $this->oper." `{$this->table}` SET".$fields." ";
         }else { //INSERT
             $fields = $this->getSetFields($db, $this->fields);
-            $this->_sql = $this->oper." ".$this->table." SET ".$fields;
+            $this->_sql = $this->oper." `".$this->table."` SET ".$fields;
         }
 
         if($this->conds){
@@ -253,9 +253,9 @@ class xmysql_cond{
                     foreach ($cond['v'] as $v) {
                         $incond[]="'".self::escapeValue($v, $db)."'";
                     }
-                    $this->_sql .= " {$cond['op'] } ".sprintf("(%s)", implode($incond, ','));
+                    $this->_sql .= "{$cond['op']} ".sprintf("(%s)", implode($incond, ','));
                 }else{
-                    $this->_sql .= "{$cond['op'] }'".self::escapeValue($cond['v'], $db)."'";
+                    $this->_sql .= "{$cond['op']}'".self::escapeValue($cond['v'], $db)."'";
                 }
             }
         }
@@ -287,7 +287,7 @@ class xmysql_cond{
      * @return mixed
      */
     private static function escapeValue($v,  $db) {
-        return $db ? $db->escape_string($v) : $v;
+        return $db ? $db->escape_string($v) : mysql_real_escape_string($v);
     }
 
     /**
