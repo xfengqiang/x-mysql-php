@@ -310,7 +310,7 @@ class xmysql_cond{
 
 function testCond() {
     //select
-    $sql = xmysql_cond::table(null, 'gjj_invite_activity_user')
+    $sql = xmysql_cond::table('gjj_invite_activity_user')
         ->select('id,team_id')
         ->equal(['user_id'=>1])
         ->where('query_status', 0, '>')
@@ -321,14 +321,14 @@ function testCond() {
     echo "[SELECT] {$sql}\n";
 
     //insert
-    $sql = xmysql_cond::table(null, 'gjj_invite_activity_user')
+    $sql = xmysql_cond::table('gjj_invite_activity_user')
         ->insert(['user_id'=>1,'user_name'=>'fankxu'])
         ->sql();
 
     echo "[INSERT] {$sql}\n";
 
     //update
-    $sql = xmysql_cond::table(null, 'gjj_invite_activity_user')
+    $sql = xmysql_cond::table('gjj_invite_activity_user')
         ->update(['user_id'=>1,'user_name'=>'fankxu'])
         ->where('id', 1)
         ->sql();
