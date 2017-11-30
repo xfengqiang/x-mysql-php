@@ -38,7 +38,7 @@ xmysql::setGlobalCallBack(function (xmysql $mysql, mysqli $db, $sql) {
     echo "[SQL] {$sql} TimeUsed:".$mysql->lastQueryTime()."ms errno:".$mysql->lastErrorCode()." errmsg:".$mysql->lastErrorMsg()."\n";
 });
 
-$db = new db('mall');
+$db = new xmysql_db('mall');
 
 function printRet($msg, $data) {
     echo "$msg ".json_encode($data)."\n";

@@ -51,7 +51,7 @@ xmysql::setGlobalCallBack(function (xmysql $mysql, mysqli $db, $sql) {
 
 ### 进行sql操作
 ``` 
-$db = new db('mall');
+$db = new xmysql_db('mall');
 
 function printRet($msg, $data) {
     echo "$msg ".json_encode($data)."\n";
